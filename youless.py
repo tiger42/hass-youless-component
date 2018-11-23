@@ -23,7 +23,7 @@ _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
-        vol.Optional(CONF_HOST): cv.string,
+        vol.Required(CONF_HOST): cv.string,
         vol.Optional(CONF_MONITORED_VARIABLES, default=['pwr', 'net']): vol.All(
             cv.ensure_list, vol.Length(min=1), [vol.In(['pwr', 'net', 'p', 'cs0', 'ps0', 'n', 'gas'])])
     })
