@@ -19,6 +19,7 @@ Installation:
 2) Download the 'youless.py' file into this 'custom_components' folder
 3) Add the following to your configuration.yaml:
 
+```
   - platform: youless
     name: Youless
     host: <your youless IP address>
@@ -32,3 +33,4 @@ Installation:
       - cs0
       - ps0
       - gas
+```
