@@ -1,0 +1,8 @@
+{
+  "domain": "youless",
+  "name": "Youless Sensor",
+  "documentation": "https://github.com/reharmsen/youless",
+  "dependencies": [],
+  "codeowners": ["@reharmsen","@pdwonline","@jongsoftdev"],
+  "requirements": []
+}
