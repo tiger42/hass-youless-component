@@ -2,7 +2,6 @@
 Home Assistant custom sensor for youless LS120
 
 Based on the version of [Gerben Jongerius](https://bitbucket.org/jongsoftdev/youless) and the aditions of pdwonline.
-This version displays the counter values directly into the icon instead of an image and adds extra sensors:
 
 ## Available sensors
 
