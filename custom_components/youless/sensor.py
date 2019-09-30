@@ -1,8 +1,9 @@
 """
-@ Author      : Gerben Jongerius, Paul de Wit
-@ Date        : 04/29/2018, 11/01/2018
-@ Description : Youless Sensor - Monitor power consumption. Now also returns high and low values and the S0 input
+@ Author      : Gerben Jongerius, Paul de Wit, Robin Harmsen
+@ Date        : 04/29/2018, 11/01/2018, 04/29/2019
+@ Description : Youless Sensor - Monitor power consumption. 
 """
+VERSION = '2.0.0'
 
 import json
 import logging
@@ -23,21 +24,21 @@ _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
-        vol.Optional(CONF_HOST): cv.string,
+        vol.Required(CONF_HOST): cv.string,
         vol.Optional(CONF_MONITORED_VARIABLES, default=['pwr', 'net']): vol.All(
-            cv.ensure_list, vol.Length(min=1), [vol.In(['pwr', 'net', 'p', 'cs0', 'ps0', 'n', 'gas'])])
+            cv.ensure_list, vol.Length(min=1), [vol.In(['pwr', 'net', 'p1', 'p2', 'n1', 'n2', 'cs0', 'ps0', 'gas'])])
     })
 }, extra=vol.ALLOW_EXTRA)
 
 SENSOR_TYPES = {
     'pwr': ['Current Power usage', 'current_power_usage', 'W', 'mdi:flash', 'energy.png'],
-    'net': ['Net Power usage', 'net_power_meter', 'W', 'mdi:gauge', 'electric-meter.png'],
+    'net': ['Net Power usage', 'net_power_meter', 'kWh', 'mdi:gauge', 'electric-meter.png'],
     'p1': ['Power Meter Low', 'power_meter_low', 'kWh', 'mdi:gauge', 'energy.png'],
     'p2': ['Power Meter High', 'power_meter_high', 'kWh', 'mdi:gauge', 'energy.png'],
     'n1': ['Power Delivery Low', 'power_delivery_low', 'kWh', 'mdi:gauge', 'energy.png'],
     'n2': ['Power Delivery High', 'power_delivery_high', 'kWh', 'mdi:gauge', 'energy.png'],
     'cs0': ['Power Meter Extra', 'power_meter_extra', 'kWh', 'mdi:gauge', 'energy.png'],
-    'ps0': ['Power usage Extra', 'current_power_usage_extra', 'W', 'mdi:flash', 'energy.png'],
+    'ps0': ['Current Power usage Extra', 'current_power_usage_extra', 'W', 'mdi:flash', 'energy.png'],
     'gas': ['Gas consumption', 'gas_meter', 'm3', 'mdi:gas-cylinder', 'electric-meter.png']
 }
 
@@ -77,7 +78,7 @@ class YoulessSensor(Entity):
         self._name = name
         self._property = prpt
         self._icon = icon
-       # self._image = image_uri
+        #self._image = image_uri
         self._uom = uom
         self._data_bridge = data_bridge
         self.entity_id = 'sensor.' + SENSOR_PREFIX + sensor_id
@@ -91,9 +92,9 @@ class YoulessSensor(Entity):
     def icon(self):
         return self._icon
 
- #   @property
- #   def entity_picture(self):
- #       return '/local/youless/' + self._image
+    #@property
+    #def entity_picture(self):
+    #    return '/local/youless/' + self._image
 
     @property
     def unit_of_measurement(self):
@@ -115,4 +116,3 @@ class YoulessSensor(Entity):
         self._raw = self._data_bridge.data()
         if self._raw is not None:
             self._state = self._raw[self._property]
-

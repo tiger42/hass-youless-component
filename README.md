@@ -1,24 +1,31 @@
-# youless
-Home Assistant custom sensor for youless
+# Custom Youless Component for HomeAssistant
+Home Assistant custom sensor for youless LS120
 
-Based on the version of Gerben Jongerius. This version displays the counter values directly into the icon instead of an image and adds some extra meter sensors:
+Based on the version of [Gerben Jongerius](https://bitbucket.org/jongsoftdev/youless) and the aditions of pdwonline.
 
-pwr: Actual Power usage
-net: total netto counter (usage minus delivery combined for high and low counters)
-p1:  total power consumption low
-p2:  total power consumption high
-n1:  total power delivery low
-n2:  total power delivery high
-cs0: total for extra power meter connected to s0 port
-ps0: Actual Power usage for extra power meter connected to s0 port
-gas: total gas cunsumption 
+## Installation
+1) create a folder called 'custom_components' if not exists into your Home Assistant configuration folder
+2) create a folder called 'youless' in the custom_components folder. 
+3) Download all files into this 'youless' folder
+
+## Available sensors
+
+ Sensor | Description | Measure
+  --- | --- | --- 
+  pwr | Current Power usage | W 
+  net | Net Power usage | kWh 
+  p1 | Power Meter Low | kWh 
+  p2 | Power Meter High | kWh 
+  n1 | Power Delivery Low | kWh
+  n2 | Power Delivery High | kWh
+  cs0 | Power Meter Extra | kWh
+  ps0 | Current Power usage Extra | W
+  gas | Gas consumption | m3
 
 
-Installation:
-1) create a folder called 'custom_components' into your Home Assistant folder 
-2) Download the 'youless.py' file into this 'custom_components' folder
-3) Add the following to your configuration.yaml:
+## Configuration example
 
+```yaml
   - platform: youless
     name: Youless
     host: <your youless IP address>
@@ -32,3 +39,4 @@ Installation:
       - cs0
       - ps0
       - gas
+```
