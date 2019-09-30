@@ -3,7 +3,7 @@
 @ Date        : 04/29/2018, 11/01/2018, 04/29/2019
 @ Description : Youless Sensor - Monitor power consumption. 
 """
-VERSION = '2.0.0'
+VERSION = '2.0.1'
 
 import json
 import logging
