@@ -1,6 +1,6 @@
 {
   "domain": "youless",
-  "name": "Youless Sensor",
+  "name": "YouLess Sensor",
   "documentation": "https://github.com/reharmsen/hass-youless-component",
   "dependencies": [],
   "codeowners": ["@reharmsen","@pdwonline","@jongsoftdev"],
