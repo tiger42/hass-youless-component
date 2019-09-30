@@ -1,5 +1,5 @@
-# Custom Youless Component for HomeAssistant
-Home Assistant custom sensor for youless LS120
+# Custom YouLess Component for HomeAssistant
+Home Assistant custom sensor for YouLess LS120
 
 Based on the version of [Gerben Jongerius](https://bitbucket.org/jongsoftdev/youless) and the aditions of pdwonline.
 
