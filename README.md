@@ -1,4 +1,5 @@
 # Custom YouLess Component for HomeAssistant
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 Home Assistant custom sensor for YouLess LS120
 
 Based on the version of [Gerben Jongerius](https://bitbucket.org/jongsoftdev/youless) and the aditions of pdwonline.
