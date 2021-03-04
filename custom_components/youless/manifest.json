@@ -1,6 +1,7 @@
 {
   "domain": "youless",
   "name": "Youless LS120 custom component",
+  "version": "2.1.1",
   "documentation": "https://github.com/tiger42/hass-youless-component",
   "dependencies": [],
   "codeowners": ["@reharmsen","@pdwonline","@jongsoftdev","@tiger42"],
